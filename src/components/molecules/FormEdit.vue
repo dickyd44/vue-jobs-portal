@@ -47,11 +47,11 @@ const handleSubmit = async () => {
 
   try {
     const response = await axios.put(`/api/jobs/${idJob}`, updateJob);
-    toast.success("Job Added Successfully");
+    toast.success("Job Updated Successfully");
     router.push(`/jobs/${response.data.id}`);
   } catch (error) {
     console.error(error);
-    toast.error("Job wasn't Added!");
+    toast.error("Job wasn't Updated!");
   }
 };
 
@@ -85,7 +85,7 @@ onMounted(async () => {
         class="bg-white px-6 py-8 mb-4 shadow-md rounded-md border m-4 md:m-0"
       >
         <form @submit.prevent="handleSubmit">
-          <h2 class="text-3xl text-center font-semibold mb-6">Add Job</h2>
+          <h2 class="text-3xl text-center font-semibold mb-6">Edit Job</h2>
 
           <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div>
@@ -252,7 +252,7 @@ onMounted(async () => {
               class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-full w-1/4 focus:outline-none focus:shadow-outline"
               type="submit"
             >
-              Add Job
+              Update Job
             </button>
           </div>
         </form>

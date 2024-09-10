@@ -20,17 +20,17 @@ const form = reactive({
 
 const toast = useToast();
 
-// const resetForm = () => {
-//   form.type = "Full-Time";
-//   form.title = "";
-//   form.description = "";
-//   form.salary = "";
-//   form.location = "";
-//   form.company.name = "";
-//   form.company.description = "";
-//   form.company.contactEmail = "";
-//   form.company.contactPhone = "";
-// };
+const resetForm = () => {
+  form.type = "Full-Time";
+  form.title = "";
+  form.description = "";
+  form.salary = "";
+  form.location = "";
+  form.company.name = "";
+  form.company.description = "";
+  form.company.contactEmail = "";
+  form.company.contactPhone = "";
+};
 
 const handleSubmit = async () => {
   const newJob = {
@@ -50,7 +50,7 @@ const handleSubmit = async () => {
   try {
     await axios.post("/api/jobs", newJob);
     toast.success("Job Added Successfully");
-    // resetForm();
+    resetForm();
     router.push(`/jobs`);
   } catch (error) {
     console.error(error);
